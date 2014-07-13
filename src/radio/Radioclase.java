@@ -1,7 +1,7 @@
 
 package radio;
 
-public class Radioclase {
+public class Radioclase implements Interface{
     private double mostrar;
     private boolean mostrar2;
     private int boton;
