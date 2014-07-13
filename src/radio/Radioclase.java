@@ -2,50 +2,58 @@
 package radio;
 
 public class Radioclase {
-    protected boolean frecuencia;
-    protected boolean encendido;
-    protected double estacionAM;
-    protected double getEstacionFM;
-    protected double bajarEstacion;
-    protected double subirEstacion;
-    protected double sacar;
-    protected int boton;
-            
-    public Radioclase(){//-----añadir parametros
- 
+    private double mostrar;
+    private boolean mostrar2;
+    private int boton;
+    private Double[] estaciones = new Double[] {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+    private Boolean[] frecuencias = new Boolean[] {false,false,false,false,false,false,false,false,false,false,false,false};
+    
+    public Radioclase(){
     }
-    public void cambiarFrecuencia(boolean frecuencia){ //Cambiar a fm o am}
+    
+    public void cambiarFrecuencia(){ //Cambiar a fm o am}
         //this.frecuencia = frecuencia;
     }
     public double sacar(int boton){ //Obtener la estacion de un boton favorito
-        return ;
+        mostrar=Double.parseDouble(estaciones[boton].toString());
+        return mostrar;
     }
-    public void apagar(){ //Apagar la radio
-
+    public boolean freq(int boton){ //Obtener la estacion de un boton favorito
+        mostrar2=frecuencias[boton];
+        return mostrar2;
     }
-    public void encender(){ //Encender la radio
-        
+    public void guardar(int boton, double emisora, boolean frecuencia){  //Guardar una radio
+        estaciones[boton]=emisora;
+        frecuencias[boton]=frecuencia;
     }
-    public void guardar(int boton, double estacion){  //Guardar una radio
-
+    public double subirEstacion(boolean frecuencia, double emisora){ //Subir de estacion
+        if(frecuencia==false){
+            if(emisora==1610){
+                emisora=520;
+            }
+            emisora = emisora + 10;
+            
+        }else{
+            if(emisora==107.9){
+                emisora=87.7;
+            }
+            emisora = emisora + 0.2;
+        }
+        return emisora;    
     }
-    public double subirEstacion(){ //Subir de estacion
-        return ;    
-    }
-    public double bajarEstacion(){ //Bajar de estacion
-        return ;
-    }
-    public boolean getFrecuencia(){ //Obtener la frecuencia actual de la radio
-        return ;    
-    }
-    public boolean getEncendido(){ //Obtener el estado de la radio (encendido o apagado)
-        return ;
-    }
-    public double getEstacionAM(){ //Obtener el estado de la estacion am (la estacion  actual del contador de am)
-        return ;
-    }
-    public double getEstacionFM(){ //Obtener el estado de la estacion fm (la estacion actual del contador de fm)
-        return ;
-    }
-    
+    public double bajarEstacion(boolean frecuencia, double emisora){ //Bajar de estacion
+        if(frecuencia==false){
+            if(emisora==530){
+                emisora=1620;
+            }
+            emisora = emisora - 10;
+            
+        }else{
+            if(emisora==87.9){
+                emisora=108.1;
+            }
+            emisora = emisora - 0.2;
+        }
+        return emisora;
+    }    
 }
