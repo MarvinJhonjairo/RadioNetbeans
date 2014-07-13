@@ -10,13 +10,11 @@ public class Interfazgrafica extends javax.swing.JFrame {
 
     private boolean frecuencia;
     private double emisora;
-    private boolean ocupado;
-    
     
     public Interfazgrafica() {
-        initComponents();
-    radio1 = new Radioclase();
     
+    initComponents(); // inicio de programa
+        radio1 = new Radioclase();
         boton1.setEnabled(false);
         boton2.setEnabled(false);
         boton3.setEnabled(false);
@@ -403,6 +401,7 @@ public class Interfazgrafica extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_boton3ActionPerformed
 
+//apagar radio
     private void OffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OffActionPerformed
         boton1.setEnabled(false);
         boton2.setEnabled(false);
@@ -421,9 +420,6 @@ public class Interfazgrafica extends javax.swing.JFrame {
         AM.setEnabled(false);
         FM.setEnabled(false);
         Off.setEnabled(false);
-
-
-// TODO add your handling code here:
     }//GEN-LAST:event_OffActionPerformed
 
     private void boton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton6ActionPerformed
@@ -437,6 +433,7 @@ public class Interfazgrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton6ActionPerformed
 
+    //encendido de radio
     private void OnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnActionPerformed
         boton1.setEnabled(true);
         boton2.setEnabled(true);
@@ -456,38 +453,28 @@ public class Interfazgrafica extends javax.swing.JFrame {
         AM.setEnabled(true);
         FM.setEnabled(true);
         Off.setEnabled(true);
-        
-
-
-
-
-
-
-    // TODO add your handling code here:
     }//GEN-LAST:event_OnActionPerformed
 
+    //Am con parametro inicial
     private void AMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMActionPerformed
         pantalla.setText("530.0");
         frecuencia = false;
-
     }//GEN-LAST:event_AMActionPerformed
 
+    //Fm con parametro inicial
     private void FMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FMActionPerformed
         pantalla.setText("87.90000000");
         frecuencia = true;
-
     }//GEN-LAST:event_FMActionPerformed
 
+    //Cambiar de estacion
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         pantalla.setText(Double.toString(radio1.subirEstacion(frecuencia, Double.parseDouble(pantalla.getText()))));
-        
-    // TODO add your handling code here:
     }//GEN-LAST:event_SiguienteActionPerformed
 
+    //Cambiar de estacion
     private void AnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnteriorActionPerformed
         pantalla.setText(Double.toString(radio1.bajarEstacion(frecuencia, Double.parseDouble(pantalla.getText()))));
-        
-    // TODO add your handling code here:
     }//GEN-LAST:event_AnteriorActionPerformed
 
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
@@ -509,8 +496,7 @@ public class Interfazgrafica extends javax.swing.JFrame {
             pantalla.setText(Double.toString(radio1.sacar(2)));
             frecuencia=radio1.freq(2);
         }
-        
-    // TODO add your handling code here:
+
     }//GEN-LAST:event_boton2ActionPerformed
 
     private void boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton4ActionPerformed
@@ -601,6 +587,7 @@ public class Interfazgrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton12ActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
